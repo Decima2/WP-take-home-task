@@ -1,0 +1,7 @@
+# Keep LF endings so shell scripts run under WSL/Git Bash on Windows checkouts.
+* text=auto eol=lf
+*.sh text eol=lf
+*.ps1 text eol=crlf
+*.png binary
+*.jpg binary
+*.gif binary

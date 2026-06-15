@@ -1,0 +1,4 @@
+# Local environment + generated cert (do not commit)
+.env
+nginx/certs/*.crt
+nginx/certs/*.key
