@@ -21,11 +21,12 @@ if (-not (Test-Path ".env")) {
 }
 
 # Load HTTP_PORT / HTTPS_PORT from .env for the final message (compose reads it directly).
-$httpPort = "8080"; $httpsPort = "8443"
+$httpPort = "80"; $httpsPort = "443"
 foreach ($line in Get-Content ".env") {
     if ($line -match '^\s*HTTP_PORT\s*=\s*(\d+)')  { $httpPort  = $Matches[1] }
     if ($line -match '^\s*HTTPS_PORT\s*=\s*(\d+)') { $httpsPort = $Matches[1] }
 }
+if ($httpsPort -eq "443") { $site = "https://newsite.com" } else { $site = "https://newsite.com:$httpsPort" }
 
 if (-not (Test-Path "nginx/certs/newsite.crt")) {
     Write-Host "==> Generating a self-signed TLS certificate for newsite.com (via Docker)"
@@ -42,8 +43,8 @@ Write-Host ""
 Write-Host "============================================================"
 Write-Host "  Northwind Coffee Co. - staging"
 Write-Host "============================================================"
-Write-Host "  Site:   https://newsite.com:$httpsPort"
-Write-Host "  Admin:  https://newsite.com:$httpsPort/wp-admin"
+Write-Host "  Site:   $site"
+Write-Host "  Admin:  $site/wp-admin"
 Write-Host ""
 Write-Host "  First, map the hostname (one time, Administrator PowerShell):"
 Write-Host '      Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "127.0.0.1 newsite.com oldsite.com"'

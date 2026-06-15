@@ -15,9 +15,9 @@ they did, in their own words:
 > I updated the `siteurl` and `home` values in `wp_options` to the new domain,
 > and I pointed the domain at the new host. That's everything."
 
-The site is now running on the staging environment at
-**`https://newsite.com:8443`**, and on the surface it loads. However, we are not
-confident the migration is actually complete or production-ready.
+The site is now running on the staging environment at **`https://newsite.com`**,
+and on the surface it loads. However, we are not confident the migration is
+actually complete or production-ready.
 
 ## Your task
 
@@ -35,8 +35,8 @@ For each thing you change, we'd like a short note covering:
 ## Access
 
 - See `README.md` to start the environment (Docker) and open the site.
-- **Site:** `https://newsite.com:8443`
-- **WordPress admin:** `https://newsite.com:8443/wp-admin`
+- **Site:** `https://newsite.com`
+- **WordPress admin:** `https://newsite.com/wp-admin`
   - user: `admin`  ·  password: `admin_pass_change_me`
 - You have full access to the database, the file system, and WP-CLI
   (`docker compose exec wpcli wp <command>`).

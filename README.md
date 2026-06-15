@@ -6,6 +6,9 @@ Your task is in **[`scenario-brief.md`](scenario-brief.md)** — read that first
 ## Requirements
 
 - **Docker Desktop** (Compose v2). On Windows, keep the default WSL2 backend.
+- Ports **80** and **443** free (the site runs on the standard web ports). If
+  another web server is using them, stop it first, or set `HTTP_PORT`/`HTTPS_PORT`
+  in `.env`.
 
 That's it — the TLS certificate is generated for you inside a container.
 
@@ -41,13 +44,13 @@ Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "127.0.0.1 newsi
 
 ## 3. Open the site
 
-**https://newsite.com:8443**
+**https://newsite.com**
 
 It uses a self-signed certificate, so your browser will warn you. In Chrome/Edge,
 click the page and type `thisisunsafe`. In Safari, choose *Show Details → visit
 this website*.
 
-**Admin:** https://newsite.com:8443/wp-admin — user `admin`, password `admin_pass_change_me`
+**Admin:** https://newsite.com/wp-admin — user `admin`, password `admin_pass_change_me`
 
 ## Tools
 

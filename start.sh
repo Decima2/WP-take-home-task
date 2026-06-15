@@ -28,15 +28,16 @@ fi
 echo "==> Starting containers (first run pulls images + imports the database)"
 docker compose up -d
 
-HTTPS_PORT="${HTTPS_PORT:-8443}"
-HTTP_PORT="${HTTP_PORT:-8080}"
+HTTPS_PORT="${HTTPS_PORT:-443}"
+HTTP_PORT="${HTTP_PORT:-80}"
+if [ "${HTTPS_PORT}" = "443" ]; then SITE="https://newsite.com"; else SITE="https://newsite.com:${HTTPS_PORT}"; fi
 cat <<EOF
 
 ============================================================
   Northwind Coffee Co. - staging
 ============================================================
-  Site:   https://newsite.com:${HTTPS_PORT}
-  Admin:  https://newsite.com:${HTTPS_PORT}/wp-admin
+  Site:   ${SITE}
+  Admin:  ${SITE}/wp-admin
 
   First, map the hostname to your machine (one time, needs sudo):
       echo "127.0.0.1 newsite.com oldsite.com" | sudo tee -a /etc/hosts

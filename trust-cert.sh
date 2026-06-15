@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # trust-cert.sh (macOS) - trust the staging self-signed certificate so the
-# browser loads https://newsite.com:8443 without warnings and the site renders
+# browser loads https://newsite.com without warnings and the site renders
 # with its stylesheet.
 #
 set -euo pipefail
@@ -24,4 +24,4 @@ sudo security add-trusted-cert -d -r trustRoot \
   -k /Library/Keychains/System.keychain \
   "$(pwd)/$CERT"
 
-echo "==> Done. Fully quit and reopen your browser, then visit https://newsite.com:8443"
+echo "==> Done. Fully quit and reopen your browser, then visit https://newsite.com"

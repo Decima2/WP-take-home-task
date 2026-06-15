@@ -1,7 +1,7 @@
 name: northwind-coffee-staging
 
 # Northwind Coffee Co. staging site.
-#   browser --> nginx (TLS, :8443 + http :8080) --> wordpress (apache) --> db
+#   browser --> nginx (TLS :443 + http :80) --> wordpress (apache) --> db
 # The database is seeded from db-seed/broken-state.sql on first boot.
 # WordPress core lives in a volume; wp-content is mounted from this repo so any
 # edits you make to themes / plugins / mu-plugins are live.
@@ -77,8 +77,8 @@ services:
     depends_on:
       - wordpress
     ports:
-      - "${HTTP_PORT:-8080}:80"
-      - "${HTTPS_PORT:-8443}:443"
+      - "${HTTP_PORT:-80}:80"
+      - "${HTTPS_PORT:-443}:443"
     volumes:
       - ./nginx/newsite.conf:/etc/nginx/conf.d/default.conf:ro
       - ./nginx/certs:/etc/nginx/certs:ro
