@@ -25,8 +25,8 @@ if [ ! -f nginx/certs/newsite.crt ]; then
     -addext "subjectAltName=DNS:newsite.com,DNS:oldsite.com"
 fi
 
-echo "==> Building and starting containers (first run pulls images + imports the database)"
-docker compose up -d --build
+echo "==> Starting containers (first run pulls images + imports the database)"
+docker compose up -d
 
 HTTPS_PORT="${HTTPS_PORT:-8443}"
 HTTP_PORT="${HTTP_PORT:-8080}"

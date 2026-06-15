@@ -3,6 +3,8 @@ name: northwind-coffee-staging
 # Northwind Coffee Co. staging site.
 #   browser --> nginx (TLS, :8443 + http :8080) --> wordpress (apache) --> db
 # The database is seeded from db-seed/broken-state.sql on first boot.
+# WordPress core lives in a volume; wp-content is mounted from this repo so any
+# edits you make to themes / plugins / mu-plugins are live.
 
 services:
   db:
@@ -26,8 +28,7 @@ services:
       retries: 20
 
   wordpress:
-    build: .
-    image: northwind-coffee-staging-wp
+    image: wordpress:6.7-php8.2-apache
     container_name: nwc_wordpress
     restart: unless-stopped
     depends_on:
@@ -43,7 +44,9 @@ services:
             $$_SERVER['HTTPS'] = 'on';
         }
     volumes:
-      - wp_data:/var/www/html
+      - wp_core:/var/www/html
+      - ./wp-content:/var/www/html/wp-content
+      - ./php/zz-mail.ini:/usr/local/etc/php/conf.d/zz-mail.ini:ro
 
   # Convenience WP-CLI container (shares the WordPress files). Use it like:
   #   docker compose exec wpcli wp <command>
@@ -63,7 +66,8 @@ services:
       WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
       HOME: /tmp
     volumes:
-      - wp_data:/var/www/html
+      - wp_core:/var/www/html
+      - ./wp-content:/var/www/html/wp-content
     entrypoint: ["tail", "-f", "/dev/null"]
 
   nginx:
@@ -81,4 +85,4 @@ services:
 
 volumes:
   db_data:
-  wp_data:
+  wp_core:

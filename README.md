@@ -51,14 +51,16 @@ this website*.
 
 ## Tools
 
+- **Files:** `wp-content/` (themes, plugins, mu-plugins) is mounted from this
+  folder, so edits here are live — just refresh. `nginx/newsite.conf` is mounted
+  too (run `docker compose restart nginx` after changing it).
 - **WP-CLI:** `docker compose exec wpcli wp <command>`
 - **Database:** `docker compose exec db mysql -uwp_user -pwp_pass wordpress`
 
 ## Stop / reset
 
 ```bash
-./stop.sh          # stop (your changes are kept).  Windows: .\stop.ps1
-
-# Full reset to the original state:
-docker compose down -v   # then run start again
+./stop.sh                 # stop (your changes are kept).  Windows: .\stop.ps1
+docker compose down -v    # reset the database back to the original state
+git restore wp-content    # discard your file edits (optional)
 ```

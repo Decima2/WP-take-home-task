@@ -35,8 +35,8 @@ if (-not (Test-Path "nginx/certs/newsite.crt")) {
         -subj "/CN=newsite.com" -addext "subjectAltName=DNS:newsite.com,DNS:oldsite.com"
 }
 
-Write-Host "==> Building and starting containers (first run pulls images + imports the database)"
-docker compose up -d --build
+Write-Host "==> Starting containers (first run pulls images + imports the database)"
+docker compose up -d
 
 Write-Host ""
 Write-Host "============================================================"
