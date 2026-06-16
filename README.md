@@ -4,11 +4,12 @@ The Northwind Coffee Co. WordPress site, just after a migration to a new domain.
 Your task is in **[`scenario-brief.md`](scenario-brief.md)** — read that first.
 
 The exercise has two parts: **Part 1** is a migration audit and fix on
-`newsite.com` (with `oldsite.com` as your working reference). **Part 2** is an
-AI/automation demo. In the interview you will **walk us through both** — your
-Part 1 fixes live on the site, not just your written notes, and your Part 2
-demo. Send Part 1 notes by email beforehand; keep the environment running so you
-can show your work.
+`newsite.com` (with `oldsite.com` as your working reference), plus brief
+**production recommendations** if Decima2 were hosting the site for the client.
+**Part 2** is an AI/automation demo. In the interview you will **walk us through
+both** — your Part 1 fixes live on the site, not just your written notes, and
+your Part 2 demo. Send Part 1 notes by email beforehand; keep the environment
+running so you can show your work.
 
 ## Requirements
 

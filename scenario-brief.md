@@ -47,6 +47,26 @@ browser is not sufficient evidence.
 There is no checklist and no stated number of issues. Part of the exercise is
 deciding what "production-ready" means and being thorough.
 
+### Production recommendations (Part 1 extension)
+
+This environment is a **local staging stack** — not how we would run the site in
+production. Once you have fixed what you can here, add a short section to your
+Part 1 notes (and be ready to talk through it in the interview):
+
+**If Decima2 were hosting this site for the client in production, what would you
+recommend?**
+
+Think about what still differs between this Docker setup and a real managed
+hosting deployment — for the **client** (Northwind) and for **Decima2** as the
+host. For example: TLS, email delivery, DNS and redirects, backups and recovery,
+security hardening, monitoring, staging vs production workflow, performance, and
+ongoing maintenance — but don't limit yourself to that list.
+
+We are not looking for a generic essay. Tie your recommendations to what you
+found during the audit and what you could not fully implement in this local
+environment. If you made a change here that would be done differently in
+production, say so.
+
 ---
 
 ## Part 2 — AI & automation
@@ -112,11 +132,12 @@ you'd do next with more time.
 ### Step 1 — Send us your Part 1 notes
 
 When you've completed the audit and fixes, email us your notes — what you found,
-how you diagnosed it, and how you fixed it. These don't need to be polished;
-clear and honest is what matters. **Keep your local environment running** — at
-the interview you will **demo your Part 1 fixes live** (walk us through the site
-and what you changed). **Don't send your Part 2 work** — you'll demo that live
-too.
+how you diagnosed it, how you fixed it, and your **production recommendations**
+for the client and Decima2. These don't need to be polished; clear and honest is
+what matters. **Keep your local environment running** — at the interview you will
+**demo your Part 1 fixes live** (walk us through the site and what you changed,
+including what you would do differently in production). **Don't send your Part
+2 work** — you'll demo that live too.
 
 ### Step 2 — Book your interview slot
 
