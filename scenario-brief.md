@@ -1,5 +1,7 @@
 # Scenario Brief — Northwind Coffee Co.
 
+Common questions: **[`faq.md`](faq.md)**.
+
 ## Background
 
 We recently moved the **Northwind Coffee Co.** WordPress website to a new domain

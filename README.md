@@ -2,6 +2,7 @@
 
 The Northwind Coffee Co. WordPress site, just after a migration to a new domain.
 Your task is in **[`scenario-brief.md`](scenario-brief.md)** — read that first.
+Common questions: **[`faq.md`](faq.md)**.
 
 The exercise has two parts: **Part 1** is a migration audit and fix on
 `newsite.com` (with `oldsite.com` as your working reference), plus brief
