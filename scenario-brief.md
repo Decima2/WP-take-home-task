@@ -113,8 +113,10 @@ you'd do next with more time.
 
 When you've completed the audit and fixes, email us your notes — what you found,
 how you diagnosed it, and how you fixed it. These don't need to be polished;
-clear and honest is what matters. **Don't send your Part 2 work** — you'll demo
-that live.
+clear and honest is what matters. **Keep your local environment running** — at
+the interview you will **demo your Part 1 fixes live** (walk us through the site
+and what you changed). **Don't send your Part 2 work** — you'll demo that live
+too.
 
 ### Step 2 — Book your interview slot
 
@@ -122,8 +124,9 @@ Book your 60-minute technical interview here:
 
 **https://calendly.com/torty-sivill9/30min**
 
-The interview will cover your Part 1 findings and your Part 2 demo, plus a further
-question section — we'll send you more detail on that once you've booked in.
+The interview will cover a **live walkthrough of your Part 1 fixes**, your
+**Part 2 demo**, plus a further question section — we'll send you more detail
+on that once you've booked in.
 
 Please submit your notes and book your slot **within two weeks** of receiving
 this brief.
