@@ -28,6 +28,14 @@ That's it — the TLS certificate is generated for you inside a container.
 
 First boot takes a minute (it pulls images and imports the database).
 
+**Fresh clone?** If you previously ran this stack on the same machine, reset
+the database so you get the planted broken state (not a leftover volume):
+
+```bash
+docker compose down -v
+./start.sh
+```
+
 ## 2. Add the hostname (one time)
 
 **macOS / Linux:**
