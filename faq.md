@@ -13,6 +13,12 @@ Common questions before and during the exercise. Your task brief is in
 how the site should look and behave. Do not “fix” oldsite or treat it as the live
 target.
 
+### Do I get write access to the GitHub repo?
+
+No. **Clone the repo and work locally** — you do not need push access, and you
+should not open pull requests against our repository. Send your Part 1 notes by
+email; you will demo your fixes from your local environment in the interview.
+
 ### Is there a checklist of bugs?
 
 No. Part of the task is deciding what “production-ready” means and being
