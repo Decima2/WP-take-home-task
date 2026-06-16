@@ -47,7 +47,8 @@ For each thing you change, we'd like a short note covering:
   deciding what "production-ready" means and being thorough.
 - The old domain (`oldsite.com`) may still resolve while DNS propagates. If you
   need to compare content against the previous site, it is reachable at the same
-  URL paths.
+  URL paths — **it is the working reference**; everything you fix on
+  `newsite.com` should already behave correctly on `oldsite.com`.
 - Check the site on mobile as well as desktop before sign-off.
 - Work in whatever order makes sense to you. You may use any standard tools,
   plugins, or WP-CLI commands you would normally reach for.
