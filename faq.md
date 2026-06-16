@@ -24,11 +24,6 @@ Yes — we use them too. Mention briefly in your notes where AI helped (e.g.
 drafting nginx rules, grep across the codebase). You’re still responsible for
 verifying every fix.
 
-### How long should this take?
-
-Most strong candidates spend **3–6 hours** on Part 1. Part 2 is separate prep
-for the live demo. Submit notes and book your slot **within two weeks**.
-
 ---
 
 ## Setup & environment
@@ -178,14 +173,14 @@ ops, or similar. Be ready to explain architecture and what you’d do next.
 
 ### Do I need to build Part 2 before the interview?
 
-Yes — come with something working (or a clear demo path). You won’t have time to
-build from scratch in the 60 minutes.
+Yes — come with something working (or a clear demo path). Build and test it
+before the interview so you can demo it live.
 
 ---
 
 ## Interview day
 
-### What happens in the 60 minutes?
+### What happens in the interview?
 
 1. Live walkthrough of Part 1 fixes (on your running environment)
 2. Part 2 demo

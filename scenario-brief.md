@@ -143,15 +143,12 @@ including what you would do differently in production). **Don't send your Part
 
 ### Step 2 — Book your interview slot
 
-Book your 60-minute technical interview here:
+Book your technical interview here:
 
 **https://calendly.com/torty-sivill9/30min**
 
 The interview will cover a **live walkthrough of your Part 1 fixes**, your
 **Part 2 demo**, plus a further question section — we'll send you more detail
 on that once you've booked in.
-
-Please submit your notes and book your slot **within two weeks** of receiving
-this brief.
 
 Good luck — we're interested in both what you find and how you think about it.
