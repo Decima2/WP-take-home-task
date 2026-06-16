@@ -1,4 +1,4 @@
-# Northwind Coffee Co. — Staging
+# Northwind Coffee Co. — Staging Environment
 
 The Northwind Coffee Co. WordPress site, just after a migration to a new domain.
 Your task is in **[`scenario-brief.md`](scenario-brief.md)** — read that first.
@@ -59,8 +59,8 @@ It uses a self-signed certificate. For a clean padlock, trust it once:
 - **macOS:** `./trust-cert.sh`
 - **Windows (Administrator):** `.\trust-cert.ps1`
 
-(then fully quit and reopen the browser). To skip trusting, you can bypass the
-warning instead — Chrome/Edge: click the page and type `thisisunsafe`; Safari:
+Then fully quit and reopen the browser. To skip trusting, bypass the warning
+instead — Chrome/Edge: click the page and type `thisisunsafe`; Safari:
 *Show Details → visit this website*.
 
 **Admin:** https://newsite.com/wp-admin — user `admin`, password `admin_pass_change_me`
@@ -75,9 +75,8 @@ warning instead — Chrome/Edge: click the page and type `thisisunsafe`; Safari:
 - **Outbound email:** this stack runs locally — messages the site sends are
   captured on your machine for inspection, not delivered to real inboxes. As part
   of sign-off, confirm that contact form submissions on **newsite.com** are
-  actually received end-to-end (a success message in the browser is not enough).
-  The old domain is useful for comparison. See `.env` if you need to locate the
-  local mail inbox port.
+  actually received end-to-end (a success message in the browser is not
+  sufficient). See `.env` if you need to locate the local mail inbox port.
 
 ## Stop / reset
 
