@@ -22,7 +22,10 @@ if [ ! -f nginx/certs/newsite.crt ]; then
     -keyout /certs/newsite.key \
     -out    /certs/newsite.crt \
     -subj   "/CN=newsite.com" \
-    -addext "subjectAltName=DNS:newsite.com,DNS:oldsite.com"
+    -addext "subjectAltName=DNS:newsite.com,DNS:oldsite.com" \
+    -addext "basicConstraints=critical,CA:TRUE" \
+    -addext "keyUsage=critical,digitalSignature,keyCertSign" \
+    -addext "extendedKeyUsage=serverAuth"
 fi
 
 echo "==> Starting containers (first run pulls images + imports the database)"
@@ -30,6 +33,7 @@ docker compose up -d
 
 HTTPS_PORT="${HTTPS_PORT:-443}"
 HTTP_PORT="${HTTP_PORT:-80}"
+MAILPIT_PORT="${MAILPIT_PORT:-8025}"
 if [ "${HTTPS_PORT}" = "443" ]; then SITE="https://newsite.com"; else SITE="https://newsite.com:${HTTPS_PORT}"; fi
 cat <<EOF
 
@@ -38,14 +42,16 @@ cat <<EOF
 ============================================================
   Site:   ${SITE}
   Admin:  ${SITE}/wp-admin
+  Mail:   http://localhost:${MAILPIT_PORT}   (inbox for email the site sends)
 
   First, map the hostname to your machine (one time, needs sudo):
       echo "127.0.0.1 newsite.com oldsite.com" | sudo tee -a /etc/hosts
 
-  The site uses a self-signed certificate. If your browser blocks it:
-    - Chrome/Edge: click the warning page and type  thisisunsafe
-    - Safari:      Show Details -> visit this website
-    - Or run ./trust-cert.sh (macOS) to trust it.
+  The site uses a self-signed certificate. For a clean padlock:
+    - macOS:   run ./trust-cert.sh
+    - Windows: run .\\trust-cert.ps1 (Administrator)
+  Or bypass: Chrome/Edge type  thisisunsafe  on the warning; Safari -> Show
+  Details -> visit this website.
 
   See scenario-brief.md for your task.
 ============================================================

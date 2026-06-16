@@ -70,6 +70,16 @@ services:
       - ./wp-content:/var/www/html/wp-content
     entrypoint: ["tail", "-f", "/dev/null"]
 
+  # Outgoing-mail catcher. The site can send SMTP to host "mail" on port 1025;
+  # everything it receives is viewable in the web inbox (no real mail leaves
+  # your machine). Handy for confirming the site can actually send email.
+  mail:
+    image: axllent/mailpit:latest
+    container_name: nwc_mail
+    restart: unless-stopped
+    ports:
+      - "${MAILPIT_PORT:-8025}:8025"
+
   nginx:
     image: nginx:1.27-alpine
     container_name: nwc_nginx

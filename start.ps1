@@ -21,10 +21,11 @@ if (-not (Test-Path ".env")) {
 }
 
 # Load HTTP_PORT / HTTPS_PORT from .env for the final message (compose reads it directly).
-$httpPort = "80"; $httpsPort = "443"
+$httpPort = "80"; $httpsPort = "443"; $mailPort = "8025"
 foreach ($line in Get-Content ".env") {
-    if ($line -match '^\s*HTTP_PORT\s*=\s*(\d+)')  { $httpPort  = $Matches[1] }
-    if ($line -match '^\s*HTTPS_PORT\s*=\s*(\d+)') { $httpsPort = $Matches[1] }
+    if ($line -match '^\s*HTTP_PORT\s*=\s*(\d+)')   { $httpPort  = $Matches[1] }
+    if ($line -match '^\s*HTTPS_PORT\s*=\s*(\d+)')  { $httpsPort = $Matches[1] }
+    if ($line -match '^\s*MAILPIT_PORT\s*=\s*(\d+)'){ $mailPort  = $Matches[1] }
 }
 if ($httpsPort -eq "443") { $site = "https://newsite.com" } else { $site = "https://newsite.com:$httpsPort" }
 
@@ -33,7 +34,11 @@ if (-not (Test-Path "nginx/certs/newsite.crt")) {
     docker run --rm -v "${PSScriptRoot}/nginx/certs:/certs" --entrypoint openssl wordpress:6.7-php8.2-apache `
         req -x509 -nodes -newkey rsa:2048 -days 825 `
         -keyout /certs/newsite.key -out /certs/newsite.crt `
-        -subj "/CN=newsite.com" -addext "subjectAltName=DNS:newsite.com,DNS:oldsite.com"
+        -subj "/CN=newsite.com" `
+        -addext "subjectAltName=DNS:newsite.com,DNS:oldsite.com" `
+        -addext "basicConstraints=critical,CA:TRUE" `
+        -addext "keyUsage=critical,digitalSignature,keyCertSign" `
+        -addext "extendedKeyUsage=serverAuth"
 }
 
 Write-Host "==> Starting containers (first run pulls images + imports the database)"
@@ -49,7 +54,10 @@ Write-Host ""
 Write-Host "  First, map the hostname (one time, Administrator PowerShell):"
 Write-Host '      Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "127.0.0.1 newsite.com oldsite.com"'
 Write-Host ""
-Write-Host "  Self-signed cert: in Chrome/Edge, click the warning and type  thisisunsafe"
+Write-Host "  Self-signed cert: run  .\trust-cert.ps1  (Administrator) for a clean"
+Write-Host "  padlock, or in Chrome/Edge click the warning and type  thisisunsafe"
+Write-Host ""
+Write-Host "  Mail inbox (any email the site sends): http://localhost:$mailPort"
 Write-Host ""
 Write-Host "  See scenario-brief.md for your task."
 Write-Host "============================================================"

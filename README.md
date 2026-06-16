@@ -46,9 +46,14 @@ Add-Content -Path $env:windir\System32\drivers\etc\hosts -Value "127.0.0.1 newsi
 
 **https://newsite.com**
 
-It uses a self-signed certificate, so your browser will warn you. In Chrome/Edge,
-click the page and type `thisisunsafe`. In Safari, choose *Show Details → visit
-this website*.
+It uses a self-signed certificate. For a clean padlock, trust it once:
+
+- **macOS:** `./trust-cert.sh`
+- **Windows (Administrator):** `.\trust-cert.ps1`
+
+(then fully quit and reopen the browser). To skip trusting, you can bypass the
+warning instead — Chrome/Edge: click the page and type `thisisunsafe`; Safari:
+*Show Details → visit this website*.
 
 **Admin:** https://newsite.com/wp-admin — user `admin`, password `admin_pass_change_me`
 
@@ -59,6 +64,9 @@ this website*.
   too (run `docker compose restart nginx` after changing it).
 - **WP-CLI:** `docker compose exec wpcli wp <command>`
 - **Database:** `docker compose exec db mysql -uwp_user -pwp_pass wordpress`
+- **Mail:** the stack includes a mail server. Any email the site sends is
+  captured and shown at **http://localhost:8025** (nothing leaves your machine).
+  SMTP is available in-stack at host `mail`, port `1025` (no authentication).
 
 ## Stop / reset
 
