@@ -50,6 +50,8 @@ For each thing you change, we'd like a short note covering:
   URL paths — **it is the working reference**; everything you fix on
   `newsite.com` should already behave correctly on `oldsite.com`.
 - Check the site on mobile as well as desktop before sign-off.
+- Test the **Contact** page on newsite.com — confirm submissions are genuinely
+  delivered, not just acknowledged in the UI. Compare with oldsite.com if helpful.
 - Work in whatever order makes sense to you. You may use any standard tools,
   plugins, or WP-CLI commands you would normally reach for.
 - If you make a change that needs hosting/DNS/server configuration we haven't

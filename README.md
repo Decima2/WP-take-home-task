@@ -72,12 +72,12 @@ warning instead — Chrome/Edge: click the page and type `thisisunsafe`; Safari:
   too (run `docker compose restart nginx` after changing it).
 - **WP-CLI:** `docker compose exec wpcli wp <command>`
 - **Database:** `docker compose exec db mysql -uwp_user -pwp_pass wordpress`
-- **Mail:** the stack includes a mail server. Any email the site sends is
-  captured and shown at **http://localhost:8025** (nothing leaves your machine).
-  SMTP is available in-stack at host `mail`, port `1025` (no authentication).
-  Contact-form submissions on **oldsite.com** deliver to Mailpit immediately;
-  **newsite.com** is intentionally broken until outgoing mail is configured.
-  The form recipient is **torty.sivill@decima2.co.uk**.
+- **Outbound email:** this stack runs locally — messages the site sends are
+  captured on your machine for inspection, not delivered to real inboxes. As part
+  of sign-off, confirm that contact form submissions on **newsite.com** are
+  actually received end-to-end (a success message in the browser is not enough).
+  The old domain is useful for comparison. See `.env` if you need to locate the
+  local mail inbox port.
 
 ## Stop / reset
 
