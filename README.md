@@ -75,6 +75,9 @@ warning instead — Chrome/Edge: click the page and type `thisisunsafe`; Safari:
 - **Mail:** the stack includes a mail server. Any email the site sends is
   captured and shown at **http://localhost:8025** (nothing leaves your machine).
   SMTP is available in-stack at host `mail`, port `1025` (no authentication).
+  Contact-form submissions on **oldsite.com** deliver to Mailpit immediately;
+  **newsite.com** is intentionally broken until outgoing mail is configured.
+  The form recipient is **torty.sivill@decima2.co.uk**.
 
 ## Stop / reset
 
