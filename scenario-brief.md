@@ -45,6 +45,9 @@ For each thing you change, we'd like a short note covering:
 
 - There is no checklist and no stated number of issues. Part of the exercise is
   deciding what "production-ready" means and being thorough.
+- The old domain (`oldsite.com`) may still resolve while DNS propagates. If you
+  need to compare content against the previous site, it is reachable at the same
+  URL paths.
 - Work in whatever order makes sense to you. You may use any standard tools,
   plugins, or WP-CLI commands you would normally reach for.
 - If you make a change that needs hosting/DNS/server configuration we haven't
