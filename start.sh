@@ -31,6 +31,10 @@ fi
 echo "==> Starting containers (first run pulls images + imports the database)"
 docker compose up -d
 
+if docker compose exec -T wpcli wp core is-installed >/dev/null 2>&1; then
+  bash scripts/seed-nav-menu.sh
+fi
+
 HTTPS_PORT="${HTTPS_PORT:-443}"
 HTTP_PORT="${HTTP_PORT:-80}"
 MAILPIT_PORT="${MAILPIT_PORT:-8025}"
