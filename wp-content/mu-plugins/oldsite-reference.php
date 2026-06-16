@@ -13,11 +13,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Return true when the request Host is the old domain.
  */
-function northwind_is_legacy_host(): bool {
-	if ( empty( $_SERVER['HTTP_HOST'] ) ) {
-		return false;
+if ( ! function_exists( 'northwind_is_legacy_host' ) ) {
+	function northwind_is_legacy_host(): bool {
+		if ( empty( $_SERVER['HTTP_HOST'] ) ) {
+			return false;
+		}
+		return false !== stripos( $_SERVER['HTTP_HOST'], 'oldsite.com' );
 	}
-	return false !== stripos( $_SERVER['HTTP_HOST'], 'oldsite.com' );
 }
 
 /**

@@ -1,0 +1,18 @@
+/*
+ * Applied on the new domain only during the host cutover. Forces a desktop-width
+ * canvas on narrow viewports so the legacy fixed-width header still lines up.
+ */
+@media only screen and (max-width: 782px) {
+	html,
+	body {
+		min-width: 1024px !important;
+		overflow-x: auto !important;
+	}
+
+	.site-header,
+	.site-main,
+	.site-footer,
+	.widget-area {
+		min-width: 1024px !important;
+	}
+}

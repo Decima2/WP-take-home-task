@@ -48,6 +48,7 @@ For each thing you change, we'd like a short note covering:
 - The old domain (`oldsite.com`) may still resolve while DNS propagates. If you
   need to compare content against the previous site, it is reachable at the same
   URL paths.
+- Check the site on mobile as well as desktop before sign-off.
 - Work in whatever order makes sense to you. You may use any standard tools,
   plugins, or WP-CLI commands you would normally reach for.
 - If you make a change that needs hosting/DNS/server configuration we haven't
